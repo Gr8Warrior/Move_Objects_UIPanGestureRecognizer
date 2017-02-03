@@ -13,8 +13,51 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        
+        let label = UILabel(frame: CGRect(x: (self.view.bounds.width/2)-100, y: (self.view.bounds.height/2)-50, width: 200, height: 100))
+       
+        label.text = "Drag me"
+        
+        label.isUserInteractionEnabled = true
+        
+        label.textAlignment = NSTextAlignment.center
+        
+        self.view.addSubview(label)
+    
+        let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gR:)))
+        
+        label.addGestureRecognizer(gestureRecognizer)
+        
     }
 
+    func wasDragged(gR : UIPanGestureRecognizer  ) {
+        
+        let translation = gR.translation(in: view)
+        
+        let label = gR.view!
+        
+        label.center = CGPoint(x: (self.view.bounds.width / 2)+translation.x , y:  (self.view.bounds.height/2) + translation.y )
+        
+        if gR.state == UIGestureRecognizerState.ended {
+            
+            if label.center.x < 100 {
+                
+                print("Not chosen")
+                
+            } else if label.center.x > (self.view.bounds.width - 100 ) {
+                
+                print("chosen")
+                
+            }
+            
+            label.center = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
+            
+        }
+        
+        print("was dragged \(label.center)")
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
