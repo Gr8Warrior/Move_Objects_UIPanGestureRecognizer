@@ -16,7 +16,7 @@ class ViewController: UIViewController {
         
         let label = UILabel(frame: CGRect(x: (self.view.bounds.width/2)-100, y: (self.view.bounds.height/2)-50, width: 200, height: 100))
        
-        label.text = "Drag me"
+        label.text = "Drag me!!!"
         
         label.isUserInteractionEnabled = true
         
@@ -38,6 +38,17 @@ class ViewController: UIViewController {
         
         label.center = CGPoint(x: (self.view.bounds.width / 2)+translation.x , y:  (self.view.bounds.height/2) + translation.y )
         
+        let xFromCenter = label.center.x - (self.view.bounds.width/2)
+        
+        var scale = min(1,abs(50/xFromCenter));
+        
+        var rotation = CGAffineTransform(rotationAngle: xFromCenter/200)
+        
+        var strechAndRotation = rotation.scaledBy(x: scale, y: scale)
+        
+        label.transform = strechAndRotation
+        
+        
         if gR.state == UIGestureRecognizerState.ended {
             
             if label.center.x < 100 {
@@ -51,6 +62,13 @@ class ViewController: UIViewController {
             }
             
             label.center = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
+            
+            rotation = CGAffineTransform(rotationAngle:0)
+            scale = 1
+        
+            strechAndRotation = rotation.scaledBy(x: scale, y: scale)
+            
+            label.transform = strechAndRotation
             
         }
         
