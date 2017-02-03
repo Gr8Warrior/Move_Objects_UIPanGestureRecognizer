@@ -14,19 +14,20 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        let label = UILabel(frame: CGRect(x: (self.view.bounds.width/2)-100, y: (self.view.bounds.height/2)-50, width: 200, height: 100))
+        let imageView = UIImageView(frame: CGRect(x: (self.view.bounds.width/2)-100, y: (self.view.bounds.height/2)-50, width: 200, height: 100))
        
-        label.text = "Drag me!!!"
+        imageView.image = UIImage(named: "person.png")
         
-        label.isUserInteractionEnabled = true
+        imageView.contentMode = UIViewContentMode.scaleAspectFit
         
-        label.textAlignment = NSTextAlignment.center
+        imageView.isUserInteractionEnabled = true
         
-        self.view.addSubview(label)
+        
+        self.view.addSubview(imageView)
     
         let gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(self.wasDragged(gR:)))
         
-        label.addGestureRecognizer(gestureRecognizer)
+        imageView.addGestureRecognizer(gestureRecognizer)
         
     }
 
@@ -34,11 +35,11 @@ class ViewController: UIViewController {
         
         let translation = gR.translation(in: view)
         
-        let label = gR.view!
+        let imageView = gR.view!
         
-        label.center = CGPoint(x: (self.view.bounds.width / 2)+translation.x , y:  (self.view.bounds.height/2) + translation.y )
+        imageView.center = CGPoint(x: (self.view.bounds.width / 2)+translation.x , y:  (self.view.bounds.height/2) + translation.y )
         
-        let xFromCenter = label.center.x - (self.view.bounds.width/2)
+        let xFromCenter = imageView.center.x - (self.view.bounds.width/2)
         
         var scale = min(1,abs(50/xFromCenter));
         
@@ -46,33 +47,33 @@ class ViewController: UIViewController {
         
         var strechAndRotation = rotation.scaledBy(x: scale, y: scale)
         
-        label.transform = strechAndRotation
+        imageView.transform = strechAndRotation
         
         
         if gR.state == UIGestureRecognizerState.ended {
             
-            if label.center.x < 100 {
+            if imageView.center.x < 100 {
                 
                 print("Not chosen")
                 
-            } else if label.center.x > (self.view.bounds.width - 100 ) {
+            } else if imageView.center.x > (self.view.bounds.width - 100 ) {
                 
                 print("chosen")
                 
             }
             
-            label.center = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
+            imageView.center = CGPoint(x: self.view.bounds.width/2, y: self.view.bounds.height/2)
             
             rotation = CGAffineTransform(rotationAngle:0)
             scale = 1
         
             strechAndRotation = rotation.scaledBy(x: scale, y: scale)
             
-            label.transform = strechAndRotation
+            imageView.transform = strechAndRotation
             
         }
         
-        print("was dragged \(label.center)")
+        print("was dragged \(imageView.center)")
         
     }
     

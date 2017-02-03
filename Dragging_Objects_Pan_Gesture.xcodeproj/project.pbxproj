@@ -12,6 +12,7 @@
 		B1961DD21E4475FF0046EF31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1961DD01E4475FF0046EF31 /* Main.storyboard */; };
 		B1961DD41E4475FF0046EF31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1961DD31E4475FF0046EF31 /* Assets.xcassets */; };
 		B1961DD71E4475FF0046EF31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1961DD51E4475FF0046EF31 /* LaunchScreen.storyboard */; };
+		B1961DDF1E4484A00046EF31 /* person.png in Resources */ = {isa = PBXBuildFile; fileRef = B1961DDE1E4484A00046EF31 /* person.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		B1961DD31E4475FF0046EF31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B1961DD61E4475FF0046EF31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B1961DD81E4475FF0046EF31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1961DDE1E4484A00046EF31 /* person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = person.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 				B1961DCE1E4475FF0046EF31 /* ViewController.swift */,
 				B1961DD01E4475FF0046EF31 /* Main.storyboard */,
 				B1961DD31E4475FF0046EF31 /* Assets.xcassets */,
+				B1961DDE1E4484A00046EF31 /* person.png */,
 				B1961DD51E4475FF0046EF31 /* LaunchScreen.storyboard */,
 				B1961DD81E4475FF0046EF31 /* Info.plist */,
 			);
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1961DDF1E4484A00046EF31 /* person.png in Resources */,
 				B1961DD71E4475FF0046EF31 /* LaunchScreen.storyboard in Resources */,
 				B1961DD41E4475FF0046EF31 /* Assets.xcassets in Resources */,
 				B1961DD21E4475FF0046EF31 /* Main.storyboard in Resources */,
